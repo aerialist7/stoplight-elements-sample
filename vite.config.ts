@@ -10,6 +10,12 @@ export default defineConfig({
     react(),
   ],
   optimizeDeps: {
+    /* This option (https://vitejs.dev/guide/migration.html#using-esbuild-deps-optimization-at-build-time) changes the error to:
+    *  Cannot convert undefined or null to object
+    *     at Function.assign (<anonymous>)
+    *     at node_modules/@jsdevtools/ono/esm/index.js
+    */
+    // disabled: false,
     esbuildOptions: {
       plugins: [
         NodeModulesPolyfill(),
@@ -22,6 +28,12 @@ export default defineConfig({
   },
   build: {
     emptyOutDir: true,
+    /* This option (https://vitejs.dev/guide/migration.html#using-esbuild-deps-optimization-at-build-time) changes the error to:
+    *  Cannot convert undefined or null to object
+    *     at Function.assign (<anonymous>)
+    *     at node_modules/@jsdevtools/ono/esm/index.js
+    */
+    // commonjsOptions: {include: []},
     rollupOptions: {
       plugins: [nodePolyfills()],
     },
