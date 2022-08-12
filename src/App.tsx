@@ -1,13 +1,16 @@
-import { API } from '@stoplight/elements'
-
-import '@stoplight/elements/styles.min.css'
-import './App.css'
+import { StrictMode } from "react"
+import { API } from "@stoplight/elements"
+import "@stoplight/elements/styles.min.css"
 
 function App() {
   return (
-    <div className="App">
-      <API apiDescriptionUrl="https://raw.githubusercontent.com/stoplightio/Public-APIs/master/reference/zoom/openapi.yaml"/>
-    </div>
+    <StrictMode>
+      <div style={{height: "100vh"}}>
+        <API
+          apiDescriptionUrl="https://raw.githubusercontent.com/stoplightio/Public-APIs/master/reference/zoom/openapi.yaml"
+        />
+      </div>
+    </StrictMode>
   )
 }
 
